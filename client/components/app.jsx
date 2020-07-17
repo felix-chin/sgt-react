@@ -19,6 +19,18 @@ class App extends React.Component {
       .catch(err => console.error(err));
   }
 
+  addGrade(grade) {
+    fetch('/api/grades', {
+      method: 'POST',
+      body: JSON.stringify(grade)
+    })
+      .then(res => res.json())
+      .then(data => {
+        this.setState({ grades: data });
+      })
+      .catch(err => console.error(err));
+  }
+
   getAverageGrade() {
     const grades = this.state.grades.slice(0);
     let sum = null;
