@@ -13,14 +13,31 @@ class App extends React.Component {
   componentDidMount() {
     fetch('/api/grades')
       .then(res => res.json())
-      .then(data => this.setState({ grades: data }))
+      .then(data => {
+        this.setState({ grades: data });
+      })
       .catch(err => console.error(err));
   }
 
+  getAverageGrade() {
+    const grades = this.state.grades.slice(0);
+    let sum = null;
+    grades.forEach(grade => { sum += grade.grade; });
+
+    let average = sum / grades.length;
+    if (isNaN(average)) {
+      average = 'N/A';
+    } else {
+      average = Math.floor(average);
+    }
+    return average;
+  }
+
   render() {
+    const average = this.getAverageGrade();
     return (
-      <div>
-        <Header />
+      <div className="container">
+        <Header average={average}/>
         <GradeTable grades={this.state.grades}/>
       </div>
     );
