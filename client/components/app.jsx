@@ -15,7 +15,6 @@ class App extends React.Component {
       .then(res => res.json())
       .then(data => {
         this.setState({ grades: data });
-        this.getAverageGrade();
       })
       .catch(err => console.error(err));
   }
@@ -31,13 +30,14 @@ class App extends React.Component {
     } else {
       average = Math.floor(average);
     }
-    this.setState({ average: average });
+    return average;
   }
 
   render() {
+    const average = this.getAverageGrade();
     return (
       <div className="container">
-        <Header average={this.state.average}/>
+        <Header average={average}/>
         <GradeTable grades={this.state.grades}/>
       </div>
     );
