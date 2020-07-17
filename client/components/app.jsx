@@ -10,6 +10,7 @@ class App extends React.Component {
       grades: []
     };
     this.addGrade = this.addGrade.bind(this);
+    this.deleteGrade = this.deleteGrade.bind(this);
   }
 
   componentDidMount() {
@@ -67,8 +68,8 @@ class App extends React.Component {
       <div className="container">
         <Header average={average}/>
         <div className="d-flex">
-          <GradeTable grades={this.state.grades} />
-          <GradeForm addGrade={this.addGrade}/>
+          <GradeTable grades={this.state.grades} deleteGrade={this.deleteGrade} />
+          <GradeForm addGrade={this.addGrade} />
         </div>
       </div>
     );
