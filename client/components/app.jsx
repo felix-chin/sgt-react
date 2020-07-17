@@ -22,28 +22,24 @@ class App extends React.Component {
 
   getAverageGrade() {
     const grades = this.state.grades.slice(0);
-    console.log('Grades:', grades);
     let sum = null;
-    let average = null;
-    grades.forEach(grade => sum += grade.grade)
-    console.log('Sum:', sum)
-    if (isNaN(sum / grades.length)) {
+    grades.forEach(grade => {
+      sum += grade.grade;
+    });
+
+    let average = sum / grades.length;
+    if (isNaN(average)) {
       average = 'N/A';
     } else {
-      average = Math.floor(sum / grades.length);
+      average = Math.floor(average);
     }
-    console.log('Average:', average)
-    return average;
-  }
-
-  componentDidUpdate() {
-    console.log(this.state)
+    this.setState({ average: average });
   }
 
   render() {
     return (
       <div>
-        <Header average={''}/>
+        <Header average={this.state.average}/>
         <GradeTable grades={this.state.grades}/>
       </div>
     );
