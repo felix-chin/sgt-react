@@ -9,25 +9,28 @@ class App extends React.Component {
     this.state = {
       grades: []
     };
+    this.addGrade = this.addGrade.bind(this);
   }
 
   componentDidMount() {
-    // fetch('/api/grades')
-    //   .then(res => res.json())
-    //   .then(data => {
-    //     this.setState({ grades: data });
-    //   })
-    //   .catch(err => console.error(err));
+    fetch('/api/grades')
+      .then(res => res.json())
+      .then(data => this.setState({ grades: data }))
+      .catch(err => console.error(err));
   }
 
   addGrade(grade) {
     fetch('/api/grades', {
       method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
       body: JSON.stringify(grade)
     })
       .then(res => res.json())
       .then(data => {
-        this.setState({ grades: data });
+        const newGrade = this.state.grades.concat(data);
+        this.setState({ grades: newGrade });
       })
       .catch(err => console.error(err));
   }
@@ -53,7 +56,7 @@ class App extends React.Component {
         <Header average={average}/>
         <div className="d-flex">
           <GradeTable grades={this.state.grades} />
-          <GradeForm />
+          <GradeForm addGrade={this.addGrade}/>
         </div>
       </div>
     );
