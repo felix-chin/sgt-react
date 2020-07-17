@@ -43,7 +43,7 @@ class App extends React.Component {
     if (isNaN(sum / grades.length)) {
       average = 'N/A';
     } else {
-      average = Math.floor(sum / grades.length);
+      average = Math.ceil(sum / grades.length);
     }
     return average;
   }
