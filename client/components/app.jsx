@@ -38,13 +38,13 @@ class App extends React.Component {
   getAverageGrade() {
     const grades = this.state.grades.slice(0);
     let sum = null;
+    let average = null;
     grades.forEach(grade => { sum += grade.grade; });
 
-    let average = sum / grades.length;
-    if (isNaN(average)) {
+    if (isNaN(sum / grades.length)) {
       average = 'N/A';
     } else {
-      average = Math.floor(average);
+      average = Math.floor(sum / grades.length);
     }
     return average;
   }

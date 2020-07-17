@@ -19,34 +19,10 @@
       "grade": 100
     },
     {
-      "id": 33
-    },
-    {
-      "id": 34
-    },
-    {
-      "id": 35
-    },
-    {
-      "id": 36
-    },
-    {
-      "id": 37
-    },
-    {
-      "id": 38
-    },
-    {
       "name": "Kylo",
       "course": "Sith for Dummies",
       "grade": "70",
-      "id": 39
-    },
-    {
-      "name": "Kylo",
-      "course": "Sith for Dummies",
-      "grade": "80",
-      "id": 40
+      "id": 33
     }
   ]
 }

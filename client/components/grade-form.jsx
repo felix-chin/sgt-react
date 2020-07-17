@@ -41,32 +41,54 @@ export default class GradeForm extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit} onReset={this.handleReset} className="w-25">
+        <h3>Add Grade</h3>
         <div className="d-flex flex-column">
-          <input
-            name="name"
-            type="text"
-            value={this.state.name}
-            onChange={this.handleChange}
-            placeholder="Name"
-            className="form-control" />
-          <input
-            name="course"
-            type="text"
-            value={this.state.course}
-            onChange={this.handleChange}
-            placeholder="Course"
-            className="form-control" />
-          <input
-            name="grade"
-            type="number"
-            value={this.state.grade}
-            onChange={this.handleChange}
-            placeholder="Grade"
-            className="form-control" />
+          <div className="input-group mb-1">
+            <div className="input-group-prepend">
+              <span className="input-group-text">
+                <i className="fas fa-user fa-fw"></i>
+              </span>
+            </div>
+            <input
+              name="name"
+              type="text"
+              value={this.state.name}
+              onChange={this.handleChange}
+              placeholder="Name"
+              className="form-control" />
+          </div>
+          <div className="input-group mb-1">
+            <div className="input-group-prepend">
+              <span className="input-group-text">
+                <i className="fas fa-book fa-fw"></i>
+              </span>
+            </div>
+            <input
+              name="course"
+              type="text"
+              value={this.state.course}
+              onChange={this.handleChange}
+              placeholder="Course"
+              className="form-control" />
+          </div>
+          <div className="input-group mb-1">
+            <div className="input-group-prepend">
+              <span className="input-group-text">
+                <i className="fas fa-graduation-cap fa-fw"></i>
+              </span>
+            </div>
+            <input
+              name="grade"
+              type="number"
+              value={this.state.grade}
+              onChange={this.handleChange}
+              placeholder="Grade"
+              className="form-control" />
+          </div>
         </div>
         <div>
-          <button type="submit" className="btn btn-success">Submit</button>
-          <button type="reset" className="btn btn-light" onClick={this.handleReset}>Cancel</button>
+          <button type="submit" className="btn btn-success mr-1">Submit</button>
+          <button type="reset" onClick={this.handleReset} className="btn btn-outline-secondary">Cancel</button>
         </div>
       </form>
     );
