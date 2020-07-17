@@ -17,6 +17,12 @@
       "name": "Douglas Crockford",
       "course": "JavaScript",
       "grade": 100
+    },
+    {
+      "name": "Kylo",
+      "course": "Sith for Dummies",
+      "grade": "70",
+      "id": 33
     }
   ]
 }
