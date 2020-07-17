@@ -28,6 +28,11 @@ export default class GradeForm extends React.Component {
     const grade = this.state;
     const addGrade = this.props.addGrade;
     addGrade(grade);
+    this.setState({
+      name: '',
+      course: '',
+      grade: ''
+    });
   }
 
   handleReset() {
@@ -41,7 +46,7 @@ export default class GradeForm extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit} onReset={this.handleReset} className="w-25">
-        <h3>Add Grade</h3>
+        <h4>Add Grade</h4>
         <div className="d-flex flex-column">
           <div className="input-group mb-1">
             <div className="input-group-prepend">
@@ -87,7 +92,7 @@ export default class GradeForm extends React.Component {
           </div>
         </div>
         <div>
-          <button type="submit" className="btn btn-success mr-1">Submit</button>
+          <button type="submit" className="btn btn-success mr-1">Add</button>
           <button type="reset" onClick={this.handleReset} className="btn btn-outline-secondary">Cancel</button>
         </div>
       </form>
