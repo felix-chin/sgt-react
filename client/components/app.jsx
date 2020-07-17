@@ -23,9 +23,7 @@ class App extends React.Component {
   getAverageGrade() {
     const grades = this.state.grades.slice(0);
     let sum = null;
-    grades.forEach(grade => {
-      sum += grade.grade;
-    });
+    grades.forEach(grade => { sum += grade.grade; });
 
     let average = sum / grades.length;
     if (isNaN(average)) {
@@ -38,7 +36,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="container">
         <Header average={this.state.average}/>
         <GradeTable grades={this.state.grades}/>
       </div>

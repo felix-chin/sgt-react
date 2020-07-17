@@ -1,0 +1,10 @@
+body, html {
+  height: 97vh;
+  margin: 0 auto
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
